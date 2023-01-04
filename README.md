@@ -14,6 +14,6 @@ The tutorial will cover the following topics:
 
 -   CooRnet functions, implementation of CLSB concepts.
 
--   Analysis and interpretation of CooRnet\'s output.
+-   Analysis and interpretation of CooRnet's output.
 
 -   Open problems and current challenges of CIB.
