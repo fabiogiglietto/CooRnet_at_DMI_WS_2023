@@ -34,7 +34,7 @@ library("CooRnet")
 allpostsfile <- "https://github.com/fabiogiglietto/CooRnet_at_DMI_WS_2023/blob/main/rawdata/allposts.csv?raw=true"
 
 # un-comment the following lines if you want to inspect the CSV file
-# df <- read_csv(allpostsfile)
+# df <- readr::read_csv(allpostsfile)
 # names(df)
 # head(df)
 
@@ -73,6 +73,7 @@ output <- CooRnet::get_coord_shares(ct_shares.df = ct_shares.urls,
 
 saveRDS(output, "./data/995_23/output.rds")
 
+# extract the different elements of the outputs
 CooRnet::get_outputs(coord_shares_output = output,
                      component_summary = TRUE,
                      cluster_summary = TRUE,
@@ -81,6 +82,12 @@ CooRnet::get_outputs(coord_shares_output = output,
 # save highly_connected_coordinated_entities in .CSV format for further analysis
 write_csv(highly_connected_coordinated_entities, file = "./data/995_23/highly_connected_coordinated_entities.csv")
 
-# save highly_connected_g in .GRAPHML format for further analysis with Gephi or similar softwares
+# save component summary in .CSV format for further analysis
+write_csv(component_summary, file = "./data/995_23/component_summary.csv")
+
+# save cluster summary in .CSV format for further analysis
+write_csv(cluster_summary, file = "./data/995_23/cluster_summary.csv")
+
+# save highly_connected_g in .GRAPHML format for further analysis with Gephi or similar software
 library("igraph")
-igraph::write.graph(highly_connected_g, file = "highly_connected_g.graphml", format = "graphml")
+igraph::write.graph(highly_connected_g, file = "./data/995_23/highly_connected_g.graphml", format = "graphml")
