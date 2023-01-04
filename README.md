@@ -8,12 +8,12 @@ In this tutorial, we use CooRnet - a tool developed in R for detecting coordinat
 
 The tutorial will cover the following topics:
 
-\- Online Coordinated Inauthentic Behaviour, what it is and why it is a problem.
+-   Online Coordinated Inauthentic Behaviour, what it is and why it is a problem.
 
-\- Leveraging CrowdTangle data to detect CLSB on Facebook.
+-   Leveraging CrowdTangle data to detect CLSB on Facebook.
 
-\- CooRnet functions, implementation of CLSB concepts.
+-   CooRnet functions, implementation of CLSB concepts.
 
-\- Analysis and interpretation of CooRnet\'s output.
+-   Analysis and interpretation of CooRnet\'s output.
 
-\- Open problems and current challenges of CIB.
+-   Open problems and current challenges of CIB.

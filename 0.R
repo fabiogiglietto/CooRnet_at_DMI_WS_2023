@@ -1,48 +1,65 @@
+# Setup API keys
+#
+# CrowdTangle (required)
+#
+# CooRnet requires a CrowdTangle API key entry in your R environment file. The R environment file is loaded every time R is started/restarted.
+#
+# The following steps show how to add the key to your R environment file.
+#
+# Open your .Renviron file. The file is usually located in your home directory. If the file does not exist, just create one and name it .Renviron.
+# Add a new line and enter your API key in the following format: CROWDTANGLE_API_KEY=“YOUR_API_KEY”.
+# Save the file and restart your current R session to start using CooRnet.
+#
+# NewsGuard (optional)
+#
+# Optionally, you can also set your credential to access NewsGuard API. The integration returns the average NewsGuard rating score obtained by the domains shared by a coordinated network.
+#
+# This process requires an active subscription to NewsGuard API and key entries in your R environment file. The R environment file is loaded every time R is started/restarted.
+#
+# The following steps show how to add the key to your R environment file.
+#
+# Open your .Renviron file. The file is usually located in your home directory. If the file does not exist, just create one and name it .Renviron.
+#
+# Add two new line and enter your API key in the following format: NG_KEY=“YOUR_API_KEY” NG_SECRET=“YOUR_API_SECRET”
+# Save the file and restart your current R session to start using CooRnet.
+
+install.packages("devtools")
 library("devtools")
+devtools::install_github("fabiogiglietto/CooRnet")
+
 library("readr")
 library("CooRnet")
 
+# set the link to CrowdTangle CSV file
+allpostsfile <- "https://github.com/fabiogiglietto/CooRnet_at_DMI_WS_2023/blob/main/rawdata/allposts.csv?raw=true"
+
 # un-comment the following lines if you want to inspect the CSV file
-# df <- read.csv("./rawdata/allposts.csv")
+# df <- read_csv(allpostsfile)
 # names(df)
 # head(df)
 
-urls <- CooRnet::get_urls_from_ct_histdata(ct_histdata_csv = allposts_csv_link,
+urls <- CooRnet::get_urls_from_ct_histdata(ct_histdata_csv = allpostsfile,
                                            newformat = TRUE)
 
 nrow(urls) # get the number of URLs
-write.csv(urls, "urls.csv") # save the list of URLs on disk
+names(urls) # list the columns name
+write.csv(urls, "./data/urls.csv") # save the list of URLs on disk
 
-ct_shares.urls <- get_ctshares(urls,
-                               sleep_time = 0.075,
-                               get_history = FALSE,
-                               clean_urls = TRUE)
+ct_shares.urls <- CooRnet::get_ctshares(urls,
+                                        sleep_time = 1,
+                                        get_history = FALSE,
+                                        clean_urls = TRUE)
 
-saveRDS(ct_shares.urls, "./data/ct_shares.rds")
+# un-comment the following line to load the rds file from disk
+# ct_shares.urls <- readRDS("./data/ct_shares.rds")
 
-library(googledrive)
-drive_upload("./data/ct_shares.rds", as_id("18Y-bGbhNx8Srg-RMIl724tiRNwIK59By"))
+nrow(ct_shares.urls) # 1,128,826 posts
+saveRDS(ct_shares.urls, "./data/ct_shares.rds") # save the posts on disk
 
 CooRnet::estimate_coord_interval(ct_shares.df = ct_shares.urls) # 23 secs
 
 ### 0.995
-
-output <- CooRnet::get_coord_shares(ct_shares.df = ct_shares.urls,
-                                    coordination_interval = "23 secs",
-                                    parallel = FALSE,
-                                    percentile_edge_weight = 0.99,
-                                    keep_ourl_only = TRUE,
-                                    clean_urls = TRUE)
-
-saveRDS(output, "./data/output_099_23.rds")
-
-CooRnet::get_outputs(coord_shares_output = output,
-                     component_summary = TRUE,
-                     cluster_summary = TRUE,
-                     top_coord_urls = TRUE,
-                     gdrive_folder_id = "1_jnUUcMekX9sijzhqlUEnKHwS5cuuR7M")
-
-###
+dir.create("./data/995_23")
 
 output <- CooRnet::get_coord_shares(ct_shares.df = ct_shares.urls,
                                     coordination_interval = "23 secs",
@@ -51,10 +68,19 @@ output <- CooRnet::get_coord_shares(ct_shares.df = ct_shares.urls,
                                     keep_ourl_only = TRUE,
                                     clean_urls = TRUE)
 
-saveRDS(output, "./data/output_0995_23.rds")
+# un-comment the following line to load the output file from disk
+# output <- readRDS("./data/995_23/output.rds")
+
+saveRDS(output, "./data/995_23/output.rds")
 
 CooRnet::get_outputs(coord_shares_output = output,
                      component_summary = TRUE,
                      cluster_summary = TRUE,
-                     top_coord_urls = TRUE,
-                     gdrive_folder_id = "1iCi2ec5DOQUaBMsf4Z1e0VtYBDm5e5h0")
+                     top_coord_urls = TRUE)
+
+# save highly_connected_coordinated_entities in .CSV format for further analysis
+write_csv(highly_connected_coordinated_entities, file = "./data/995_23/highly_connected_coordinated_entities.csv")
+
+# save highly_connected_g in .GRAPHML format for further analysis with Gephi or similar softwares
+library("igraph")
+igraph::write.graph(highly_connected_g, file = "highly_connected_g.graphml", format = "graphml")
