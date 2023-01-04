@@ -77,16 +77,23 @@ saveRDS(output, "./data/995_23/output.rds")
 CooRnet::get_outputs(coord_shares_output = output,
                      component_summary = TRUE,
                      cluster_summary = TRUE,
+                     top_coord_shares = TRUE,
                      top_coord_urls = TRUE)
 
 # save highly_connected_coordinated_entities in .CSV format for further analysis
-write_csv(highly_connected_coordinated_entities, file = "./data/995_23/highly_connected_coordinated_entities.csv")
+readr::write_csv(highly_connected_coordinated_entities, file = "./data/995_23/highly_connected_coordinated_entities.csv")
 
 # save component summary in .CSV format for further analysis
-write_csv(component_summary, file = "./data/995_23/component_summary.csv")
+readr::write_csv(component_summary, file = "./data/995_23/component_summary.csv")
 
 # save cluster summary in .CSV format for further analysis
-write_csv(cluster_summary, file = "./data/995_23/cluster_summary.csv")
+readr::write_csv(cluster_summary, file = "./data/995_23/cluster_summary.csv")
+
+# save component summary in .CSV format for further analysis
+readr::write_csv(top_coord_urls, file = "./data/995_23/top_coord_urls.csv")
+
+# save cluster summary in .CSV format for further analysis
+readr::write_csv(top_coord_shares, file = "./data/995_23/top_coord_shares.csv")
 
 # save highly_connected_g in .GRAPHML format for further analysis with Gephi or similar software
 library("igraph")
