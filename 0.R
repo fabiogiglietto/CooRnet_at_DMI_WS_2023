@@ -25,10 +25,14 @@
 
 install.packages("devtools")
 library("devtools")
-devtools::install_github("fabiogiglietto/CooRnet")
+devtools::install_github("fabiogiglietto/CooRnet") # install or update CooRnet
 
 library("readr")
 library("CooRnet")
+
+# setup working spaces with data and rawdata folders
+dir.create("./data/")
+dir.create("./rawdata/")
 
 # set the link to CrowdTangle CSV file
 allpostsfile <- "https://github.com/fabiogiglietto/CooRnet_at_DMI_WS_2023/blob/main/rawdata/allposts.csv?raw=true"
@@ -59,7 +63,7 @@ saveRDS(ct_shares.urls, "./data/ct_shares.rds") # save the posts on disk
 CooRnet::estimate_coord_interval(ct_shares.df = ct_shares.urls) # 23 secs
 
 ### 0.995
-dir.create("./data/995_23")
+dir.create("./data/995_23") # creates a directory for our outputs
 
 output <- CooRnet::get_coord_shares(ct_shares.df = ct_shares.urls,
                                     coordination_interval = "23 secs",
