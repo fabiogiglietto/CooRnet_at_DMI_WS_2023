@@ -184,7 +184,7 @@ CooRnet::get_outputs(coord_shares_output = output,
                      component_summary = TRUE,
                      cluster_summary = TRUE, 
                      top_coord_share = TRUE,
-                     top_coord_urls = TRUE,)
+                     top_coord_urls = TRUE)
 
 # save highly_connected_coordinated_entities in .CSV format for further analysis
 readr::write_csv(highly_connected_coordinated_entities, file = "./data/995_23/highly_connected_coordinated_entities.csv")
@@ -220,7 +220,7 @@ To analyze networks, the function "Highly_connected_g" may be useful as it creat
 
 Below an example of a map of the identified networks is shown. It displayed networks composed of nine or more coordinated accounts (27).
 
-![Map of the clusters](images/Cluster%20Map.pdf)
+![Map of the clusters](images/Screenshot%20(3).png)
 
 # Materials
 
