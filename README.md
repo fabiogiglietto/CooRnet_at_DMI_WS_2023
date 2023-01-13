@@ -204,10 +204,6 @@ Below an example of a map of the identified networks is shown. It displayed netw
 
 ![Map of the clusters](images/Screenshot%20(3).png)
 
-## Materials
-
-Code and data are available at [[https://tinyurl.com/45pkkmrx]{.underline}](https://tinyurl.com/45pkkmrx).
-
 ## References
 
 [1] The long history of disinformation during war. The Washington Post. 28 Apr 2022. Available: <https://www.washingtonpost.com/outlook/2022/04/28/long-history-misinformation-during-war/>. Accessed 3 Jan 2023.
