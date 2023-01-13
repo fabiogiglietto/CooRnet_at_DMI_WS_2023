@@ -1,6 +1,6 @@
 # **Detecting Coordinated Link Sharing Behaviour with CooRnet**
 
-Code and data repository for the "Detecting Coordinated Link Sharing Behaviour with [CooRnet](https://coornet.org/)" tutorial at the [Digital Media Initiative 2023 Winter School](https://wiki.digitalmethods.net/Dmi/WinterSchool2023).
+Code and data repository for the "Detecting Coordinated Link Sharing Behaviour with [CooRnet](https://coornet.org/)" tutorial at the [Digital Media Initiative 2023 Winter School](https://wiki.digitalmethods.net/Dmi/WinterSchool2023). The results of the related project is available at [this page](https://wiki.digitalmethods.net/Dmi/WinterSchool2023coornet4ukraine).
 
 ## Abstract
 
