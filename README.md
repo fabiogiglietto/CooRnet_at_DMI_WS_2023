@@ -1,6 +1,10 @@
 # **Detecting Coordinated Link Sharing Behaviour with CooRnet**
 
-Code and data repository for the "Detecting Coordinated Link Sharing Behaviour with [CooRnet](https://coornet.org/)" tutorial at the [Digital Media Initiative 2023 Winter School](https://wiki.digitalmethods.net/Dmi/WinterSchool2023). The results of the related project is available at [this page](https://wiki.digitalmethods.net/Dmi/WinterSchool2023coornet4ukraine).
+![tutorial cover](images/Presentation%20for%20the%20tutorial%20at%20DMI%20Winter%20School%202023.png)
+
+Welcome to the code and data repository for the "Detecting Coordinated Link Sharing Behaviour with [CooRnet](https://coornet.org/)" tutorial at the [Digital Media Initiative 2023 Winter School](https://wiki.digitalmethods.net/Dmi/WinterSchool2023). The results of the related project "Mapping Coordinated Networks That Circulate Problematic Information on the war in Ukraine" are available at [this page](https://wiki.digitalmethods.net/Dmi/WinterSchool2023coornet4ukraine). The project was supported by [vera.ai](https://www.veraai.eu/) grant.
+
+This documentation is also available in [PDF format](./downloads/tutorial_documentation.pdf). The presentation used during the tutorial is also available [here](./downloads/presentation.pdf).
 
 ## Abstract
 
@@ -202,7 +206,7 @@ To analyze networks, the function "Highly_connected_g" may be useful as it creat
 
 Below an example of a map of the identified networks is shown. It displayed networks composed of nine or more coordinated accounts (27).
 
-![Map of the clusters](images/Screenshot%20(3).png)
+![Map of the detected clusters](images/output_viz.png)
 
 ## References
 
