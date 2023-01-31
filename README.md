@@ -62,7 +62,7 @@ CooRnet is an R package that detected CLSB.
 
 2.  *Getting Started: the Global CLSB List*
 
-In a previous work - [[Global CLSB maps 2022]{.underline}](https://datastudio.google.com/reporting/88925379-9971-4c0a-aef8-93c6e0b006a4/page/8HsWB?s=h1CRz1_T37I) - we identified 818 coordinated accounts ([[115 Facebook Pages and 703 public groups organized in 95 networks]{.underline}](https://github.com/fabiogiglietto/Global_CLSB)) that performed "coordinated link sharing behavior" on Facebook by rapidly sharing at least four different news stories rated as problematic by Facebook third-party fact-checkers between January 2017 and December 2021. We consider this list a useful starting point for searching for problematic information related to the Russian/Ukrainian conflict because the accounts on this list have previously disseminated problematic information on Facebook.
+In a previous work - [[Global CLSB maps 2022]{.underline}](https://datastudio.google.com/reporting/88925379-9971-4c0a-aef8-93c6e0b006a4/page/8HsWB?s=h1CRz1_T37I) - we identified 818 coordinated accounts (115 Facebook Pages and 703 public groups organized in 95 networks](https://github.com/fabiogiglietto/Global_CLSB)) that performed "coordinated link sharing behavior" on Facebook by rapidly sharing at least four different news stories rated as problematic by Facebook third-party fact-checkers between January 2017 and December 2021. We consider this list a useful starting point for searching for problematic information related to the Russian/Ukrainian conflict because the accounts on this list have previously disseminated problematic information on Facebook.
 
 3.  *CrowdTangle lists*
 
