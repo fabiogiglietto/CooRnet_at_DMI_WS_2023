@@ -1,3 +1,7 @@
+---
+---
+---
+
 # **Detecting Coordinated Link Sharing Behaviour with CooRnet**
 
 ![tutorial cover](images/Presentation%20for%20the%20tutorial%20at%20DMI%20Winter%20School%202023.png)
@@ -60,24 +64,23 @@ The rationale is that, while it may be common that several accounts share the sa
 
 CooRnet is an R package that detected CLSB.
 
-2. *Getting Started: the Global CLSB List*
+2.  *Getting Started: the Global CLSB List*
 
 In a previous work - [Global CLSB maps 2022](https://datastudio.google.com/reporting/88925379-9971-4c0a-aef8-93c6e0b006a4/page/8HsWB?s=h1CRz1_T37I) - we identified 818 coordinated accounts (115 Facebook Pages and 703 public groups organized in 95 networks](<https://github.com/fabiogiglietto/Global_CLSB>)) that performed "coordinated link sharing behavior" on Facebook by rapidly sharing at least four different news stories rated as problematic by Facebook third-party fact-checkers between January 2017 and December 2021. We consider this list a useful starting point for searching for problematic information related to the Russian/Ukrainian conflict because the accounts on this list have previously disseminated problematic information on Facebook.
 
-3. *CrowdTangle lists*
+3.  *CrowdTangle lists*
 
 Through [CrowdTangle](https://www.crowdtangle.com/) (CT), it is possible to trace all the content posted by these pages in a given time frame and check whether they actually posted content related to the Russian/Ukrainian conflict. To do this, it can be useful to create a [list](https://help.crowdtangle.com/en/articles/1140912-what-is-a-list) - namely a collection of specific Pages, Groups, or public accounts - that enable users to monitor and compare the content accounts through different functions. Since CrowdTangle does not allow you to create unique lists for pages and groups, it is necessary to create 2 different lists: one for groups and the other for pages.
 
 Through CrowdTangle's ["Batch Upload"](https://help.crowdtangle.com/en/articles/2489675-faq-lists#:~:text=To%20do%20this%2C%20click%20on,account%2Fsubreddit%20you%20are%20adding.) function, we created a list composed of 115 pages and another one composed of 682 groups.
 
-4. *Collecting posts*
+4.  *Collecting posts*
 
 Once the lists have been created, we can use CrowdTangle's "search" function to retrieve published posts from the analyzed pages. According to our goals, keyword research over a specified period of time may be functional. For example, we can use the keywords "*Ukraine, Russia, Putin, Zelensky, Kiev, Zaporizhzhia, Donetsk, Mariupol, Kharkiv, Kherson, Luhans'k, Luhansk, Saporischschja, Donezk, Charkiw*" from 2022-02-20 23:59:59 CET - 2022-12-03 23:59:59 CET).
 
 CrowdTangle will email a CSV file with the requested data ([a list of posts](https://github.com/fabiogiglietto/CooRnet_at_DMI_WS_2023/blob/main/rawdata/allposts.csv)). We can either download this file or save the link for later.
 
 We then start our R Studio, create a new project and install the [CooRnet package](https://coornet.org/tutorial01.html).
-
 
 ```{r}
 library("readr")
@@ -188,7 +191,7 @@ The "get_top_coord_urls" creates a ranked list of best performing URLs shared by
 
 The "get_top_coord_shares" creates a ranked list of best performing posts with link (shares) published by coordinated networks (see the output [here](https://github.com/fabiogiglietto/CooRnet_at_DMI_WS_2023/blob/main/data/995_23/top_coord_shares.csv)). Our list of top coordinated share is composed by 1170 posts.
 
-9. *CLSB map of Ukraine Invasion*
+9.  *CLSB map of Ukraine Invasion*
 
 To analyze networks, the function "Highly_connected_g" may be useful as it creates an igraph graph that can be easily saved and exported to further analysis or network visualizations (e.g. in [Gephi](https://gephi.org/)) (see the output [here](https://github.com/fabiogiglietto/CooRnet_at_DMI_WS_2023/blob/main/data/995_23/highly_connected_g.graphml)).
 
