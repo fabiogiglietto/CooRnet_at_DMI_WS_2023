@@ -26,7 +26,7 @@ The tutorial will cover the following topics:
 
 1.  Definitions: from CiB to CLSB;
 
-2.  Getting started: the [[Global CLSB \> List]{.underline}](https://github.com/fabiogiglietto/Global_CLSB);
+2.  Getting started: the [Global CLSB](https://github.com/fabiogiglietto/Global_CLSB);
 
 3.  Created two new CrowdTangle lists with groups and Pages (bulk \> import);
 
