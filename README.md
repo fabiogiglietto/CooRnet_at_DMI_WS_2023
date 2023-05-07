@@ -1,7 +1,3 @@
----
----
----
-
 # **Detecting Coordinated Link Sharing Behaviour with CooRnet**
 
 ![tutorial cover](images/Presentation%20for%20the%20tutorial%20at%20DMI%20Winter%20School%202023.png)
